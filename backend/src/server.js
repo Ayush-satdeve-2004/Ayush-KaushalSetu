@@ -25,6 +25,18 @@ seedDatabase();
 // API Routes
 app.use('/api', apiRoutes);
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    name: 'AYUSH KaushalSetu Backend REST API',
+    status: 'ONLINE',
+    version: '1.0.0',
+    sih_problem_statement: 'SIH26044',
+    api_base: '/api',
+    health: '/health'
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', message: 'AYUSH KaushalSetu Server is running seamlessly.' });

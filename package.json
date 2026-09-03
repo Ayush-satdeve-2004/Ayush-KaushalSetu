@@ -2,7 +2,9 @@
   "name": "ayush-kaushalsetu",
   "version": "1.0.0",
   "description": "AYUSH KaushalSetu - AI-Driven Academia-Industry-Skill Platform (SIH26044)",
+  "main": "backend/src/server.js",
   "scripts": {
+    "start": "node backend/src/server.js",
     "start:backend": "cd backend && npm start",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev"
