@@ -5,6 +5,7 @@
   "main": "backend/src/server.js",
   "scripts": {
     "start": "node backend/src/server.js",
+    "build": "cd frontend && npm install && npm run build",
     "start:backend": "cd backend && npm start",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev"
