@@ -150,10 +150,13 @@ export default function CompanyPortal({ companyId = 'usr-company-1' }) {
     }
   };
 
-  const filteredCandidates = rankedCandidates.filter(c => {
-    if (c.analysis.compatibility_score < filterMinScore) return false;
+  const filteredCandidates = (rankedCandidates || []).filter(c => {
+    if (!c || !c.analysis) return false;
+    const score = c.analysis.compatibility_score ?? 0;
+    if (score < filterMinScore) return false;
     if (filterVerificationOnly) {
-      const hasVerified = c.analysis.met_must_have.some(m => m.verification_status === 'Verified');
+      const mustHave = c.analysis.met_must_have || [];
+      const hasVerified = mustHave.some(m => m?.verification_status === 'Verified');
       if (!hasVerified) return false;
     }
     return true;
@@ -276,7 +279,7 @@ export default function CompanyPortal({ companyId = 'usr-company-1' }) {
             ) : (
               filteredCandidates.map(({ student, analysis }, index) => (
                 <div
-                  key={student.student_id}
+                  key={student?.student_id || index}
                   className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all space-y-4"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -286,13 +289,13 @@ export default function CompanyPortal({ companyId = 'usr-company-1' }) {
                       </div>
                       <div>
                         <div className="flex items-center space-x-2">
-                          <h3 className="font-bold text-slate-900 text-base">{student.name}</h3>
+                          <h3 className="font-bold text-slate-900 text-base">{student?.name || 'Candidate'}</h3>
                           <span className="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded font-medium">
-                            {student.degree}
+                            {student?.degree || 'AYUSH Candidate'}
                           </span>
                         </div>
                         <p className="text-xs text-slate-500 mt-0.5">
-                          {student.institution_name} • Experience: {student.experience_years} Years
+                          {student?.institution_name || 'Academic Institution'} • Experience: {student?.experience_years ?? 0} Years
                         </p>
                       </div>
                     </div>
@@ -300,7 +303,7 @@ export default function CompanyPortal({ companyId = 'usr-company-1' }) {
                     <div className="flex items-center space-x-4">
                       <div className="bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-xl text-center">
                         <div className="text-2xl font-black text-emerald-700">
-                          {analysis.compatibility_score}%
+                          {analysis?.compatibility_score ?? 0}%
                         </div>
                         <div className="text-[10px] uppercase font-bold text-emerald-800">
                           Explainable Fit
@@ -308,7 +311,7 @@ export default function CompanyPortal({ companyId = 'usr-company-1' }) {
                       </div>
 
                       <button
-                        onClick={() => setShortlistCandidateModal({ student_id: student.student_id, name: student.name })}
+                        onClick={() => setShortlistCandidateModal({ student_id: student?.student_id, name: student?.name })}
                         className="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-4 py-2 rounded-xl text-xs transition-all shadow flex items-center space-x-1.5"
                       >
                         <UserCheck className="w-4 h-4" />
@@ -323,16 +326,16 @@ export default function CompanyPortal({ companyId = 'usr-company-1' }) {
                         <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
                         <span>AI Candidate Ranking Criteria</span>
                       </span>
-                      <span className="text-slate-500">{analysis.explanation}</span>
+                      <span className="text-slate-500">{analysis?.explanation || 'Skill match analysis calculated.'}</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2 pt-1">
-                      {analysis.met_must_have.map(s => (
+                      {(analysis?.met_must_have || []).map(s => (
                         <span key={s.skill_id} className="bg-emerald-100 text-emerald-900 text-[11px] font-semibold px-2.5 py-1 rounded-md border border-emerald-200">
                           ✓ {s.skill_name} ({s.verification_status})
                         </span>
                       ))}
-                      {analysis.missed_must_have.map(s => (
+                      {(analysis?.missed_must_have || []).map(s => (
                         <span key={s.skill_id} className="bg-amber-100 text-amber-900 text-[11px] font-semibold px-2.5 py-1 rounded-md border border-amber-200">
                           ✗ Missing: {s.skill_name}
                         </span>

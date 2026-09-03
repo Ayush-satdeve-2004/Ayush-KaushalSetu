@@ -273,7 +273,7 @@ export default function StudentPortal({ studentId = 'usr-student-1', onSharePort
                     <p className="text-xs text-slate-500 mt-1">📍 {match.job.location} • {match.job.stipend_salary}</p>
                   </div>
                   <div className="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl text-center">
-                    <span className="text-xl font-black text-emerald-700">{match.match_analysis.compatibility_score}%</span>
+                    <span className="text-xl font-black text-emerald-700">{match?.match_analysis?.compatibility_score ?? 0}%</span>
                     <p className="text-[9px] uppercase font-bold text-emerald-800">Fit Score</p>
                   </div>
                 </div>
