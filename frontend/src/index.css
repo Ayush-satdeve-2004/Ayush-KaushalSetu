@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+  }
+}
+
+.gradient-ayush {
+  background: linear-gradient(135deg, #064e3b 0%, #15803d 50%, #047857 100%);
+}
+
+.gradient-card {
+  background: linear-gradient(180deg, rgba(240, 253, 244, 0.6) 0%, rgba(255, 255, 255, 1) 100%);
+}

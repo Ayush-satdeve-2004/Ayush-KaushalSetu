@@ -1,0 +1,10 @@
+{
+  "name": "ayush-kaushalsetu",
+  "version": "1.0.0",
+  "description": "AYUSH KaushalSetu - AI-Driven Academia-Industry-Skill Platform (SIH26044)",
+  "scripts": {
+    "start:backend": "cd backend && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  }
+}
