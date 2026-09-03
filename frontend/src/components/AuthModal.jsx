@@ -445,41 +445,6 @@ export default function AuthModal({ isOpen, initialMode = 'login', onClose, onLo
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              {/* Quick Preset Demo Logins */}
-              <div className="pt-2">
-                <p className="text-[11px] font-bold text-slate-500 text-center mb-1.5">Or Quick Demo Sign In:</p>
-                <div className="flex flex-wrap justify-center gap-1.5">
-                  <button
-                    type="button"
-                    onClick={() => { setLoginEmail('aarav.sharma@student.aiia.ac.in'); }}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-semibold px-2.5 py-1 rounded-lg"
-                  >
-                    Student (Aarav)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => { setLoginEmail('recruitment@daburayush.com'); }}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-semibold px-2.5 py-1 rounded-lg"
-                  >
-                    Company (Dabur)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => { setLoginEmail('academic@aiia.gov.in'); }}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-semibold px-2.5 py-1 rounded-lg"
-                  >
-                    Institution (AIIA)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => { setLoginEmail('certification@swayam-ayush.in'); }}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-semibold px-2.5 py-1 rounded-lg"
-                  >
-                    Platform (Swayam)
-                  </button>
-                </div>
-              </div>
-
               {/* Prompt Link to Register */}
               <div className="text-center pt-3 border-t border-slate-100">
                 <p className="text-slate-600 font-medium">

@@ -31,14 +31,14 @@ export default function HomePage({ onOpenAuth }) {
       {/* Top Header Navbar */}
       <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
         {/* Top Ministry Banner */}
-        <div className="gradient-ayush text-white px-4 py-2 text-xs font-medium flex justify-between items-center">
+        <div className="gradient-ayush text-white px-3 sm:px-4 py-1.5 text-xs font-medium flex flex-wrap justify-between items-center gap-1.5 w-full">
           <div className="flex items-center space-x-2">
             <span className="bg-amber-400 text-slate-900 font-extrabold px-2 py-0.5 rounded text-[10px] uppercase">
               SIH Problem Statement SIH26044
             </span>
-            <span className="hidden sm:inline">Ministry of AYUSH • Government of India</span>
+            <span className="hidden md:inline">Ministry of AYUSH • Government of India</span>
           </div>
-          <div className="flex items-center space-x-3 text-emerald-100">
+          <div className="flex items-center space-x-2 text-emerald-100 text-[11px]">
             <span className="flex items-center space-x-1">
               <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
               <span>AI Matching Engine Active</span>
@@ -47,29 +47,29 @@ export default function HomePage({ onOpenAuth }) {
         </div>
 
         {/* Main Header Container */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl gradient-ayush flex items-center justify-center text-white font-bold text-xl shadow-md">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 w-full">
+          <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl gradient-ayush flex items-center justify-center text-white font-bold text-base sm:text-xl shadow-md shrink-0">
               KS
             </div>
-            <div>
-              <div className="flex items-center space-x-2">
-                <h1 className="text-xl font-bold tracking-tight text-slate-900">
+            <div className="min-w-0">
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <h1 className="text-base sm:text-xl font-bold tracking-tight text-slate-900 truncate">
                   AYUSH <span className="text-emerald-700">KaushalSetu</span>
                 </h1>
-                <ShieldCheck className="w-5 h-5 text-emerald-600" />
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" />
               </div>
-              <p className="text-xs text-slate-500 font-medium">
+              <p className="text-[10px] sm:text-xs text-slate-500 font-medium truncate">
                 AI-Driven Academia–Industry–Skill Platform
               </p>
             </div>
           </div>
 
           {/* Top Most Right Corner: Single Unified Sign In / Register Button */}
-          <div>
+          <div className="shrink-0">
             <button
               onClick={() => onOpenAuth('login')}
-              className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-md transition-all"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs shadow-md transition-all whitespace-nowrap"
             >
               Sign In / Register
             </button>
