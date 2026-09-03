@@ -46,6 +46,6 @@ app.get('/health', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`=================================================`);
   console.log(`AYUSH KaushalSetu Backend Running on Port ${PORT}`);
-  console.log(`API Base: http://localhost:${PORT}/api`);
+  console.log(`Render Production API Base: https://ayushkaushalsetu.onrender.com/api`);
   console.log(`=================================================`);
 });
