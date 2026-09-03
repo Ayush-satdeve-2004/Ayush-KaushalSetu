@@ -2,15 +2,8 @@
   "name": "AYUSH KaushalSetu",
   "short_name": "KaushalSetu",
   "description": "AI-Driven Academia-Industry-Skill Platform (SIH26044)",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#15803d",
-  "icons": [
-    {
-      "src": "https://ayush.gov.in/favicon.ico",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
+  "theme_color": "#15803d"
 }
